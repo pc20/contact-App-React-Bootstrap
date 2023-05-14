@@ -1,0 +1,9 @@
+.circle{
+    border: 1px solid black;
+    height: max-content;
+    width: max-content;
+    border-radius: 50%;
+    color: whitesmoke;
+    background-color: black;
+    padding: 0.5%;
+}
