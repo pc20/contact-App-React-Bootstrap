@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 export default function ContactList(){
     const totalCnt = 0;
     return(<>
-        <div className="container bg-dark text-white">
+        <div className="container bg-dark text-white rounded h-100">
             <section className="pt-3 d-flex flex-row justify-content-around">
                 <div className="p-2 mt-3">{`Total Contacts: ${totalCnt}`}</div>
                 <div className="p-2">

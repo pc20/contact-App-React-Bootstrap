@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 export default function Navbar(){
 
     return(
-        <nav className="navbar navbar-dark bg-dark navbar-collapse-md">
+        <nav className="navbar navbar-dark bg-dark navbar-collapse-md rounded">
              <Link to={'/'} className="navbar-brand mx-2">
                 <i className="fa-solid fa-address-book fa-xl text-white"> </i>
                 <span className="text-white h4">CONTACT APP</span>
