@@ -80,7 +80,7 @@ function App() {
 
   return (
     <div className="App d-flex justify-content-around">
-     <div className="container w-50 mr-auto">
+     <div className="container w-75 mr-auto">
       <Navbar/>
       <Routes>
         <Route path={'/'} element={<Navigate to={'/contacts/list'}/>}/>
