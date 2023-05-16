@@ -52,7 +52,7 @@ export default function EditContact(props){
                 navigate('/contacts/list',{replace:true});
             }
         }catch(err){
-            console.log("api called failed ",err);
+            // console.log("api called failed ",err);
             navigate(`/contacts/list/${contactId}`,{replace:false});
         }
     }

@@ -1,8 +1,11 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { FetchData } from '../service/api';
 
+
+
 function Contact(props) {
+    const navigate = useNavigate();
    const  {contact,deleteContact} = props;
 
    function getName(fullname){
@@ -20,6 +23,7 @@ const handleDeleteContact = () => {
         if(res){
             console.log("deleted successfully");
             deleteContact(contact.id);
+            navigate('/contacts/list',{replace:true});
         }
     } catch (err) {
          console.log("delete api failed",err);
@@ -27,6 +31,7 @@ const handleDeleteContact = () => {
 }
 
   return (
+    
     <div className="list-group-item my-1 rounded">
         <div className="row g-4">
             <div className="col-1 circle text-center">{getName(contact.name)}</div>
