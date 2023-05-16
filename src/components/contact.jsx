@@ -39,10 +39,10 @@ const handleDeleteContact = () => {
             <div className='col-md-4'>{contact.phone.split(" ")[0].trim()}</div>
             <div className="col-md-2">
                 <Link to={`/contacts/edit/${contact.id}`}>
-                    <i className="fa-regular fa-pen-to-square px-2"></i>
+                    <i className="fa-regular fa-pen-to-square px-2 text-dark"></i>
                 </Link>
                 <Link to={'/contacts/list'} onClick={handleDeleteContact}>
-                    <i className="fa-solid fa-trash px-2"></i>
+                    <i className="fa-solid fa-trash px-2 text-danger"></i>
                 </Link>
             </div>   
         </div>

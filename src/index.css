@@ -4,6 +4,12 @@ input::-webkit-inner-spin-button {
     margin: 0;
 }
 
+.bg-dark{
+    background-image: var(--bs-gradient);
+    --bs-bg-opacity:1;
+    background-color: rgba(var(--bs-dark-rgb),var(--bs-bg-opacity)) !important;
+}
+
 .circle{
     border: 1px solid black;
     height: max-content;

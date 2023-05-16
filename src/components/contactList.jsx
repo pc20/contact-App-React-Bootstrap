@@ -28,12 +28,12 @@ export default function ContactList(props){
         },[contacts])
 
     return(<>
-        <div className="container bg-dark text-white rounded-bottom h-100">
+        <div className="container bg-dark  text-light rounded-bottom h-100">
             <section className="pt-3 d-flex flex-row justify-content-between align-items-center">
                 <div>{`Total Contacts: ${totalCnt}`}</div>
                 <div>
                     <Link to={'/contacts/add'} className="">
-                        <button className="btn btn btn-primary "><i className="fa-solid fa-user-plus"/>  New Contact</button>
+                        <button className="btn btn btn-info "><i className="fa-solid fa-user-plus"/>  New Contact</button>
                     </Link>
                 </div>
                 <div>

@@ -48,7 +48,7 @@ export default function AddContact(props){
 
     return(
         
-    <div className="container bg-dark h-100 rounded-bottom">
+    <div className="container bg-dark h-100 rounded-bottom py-2">
         <div className="grid bg-light text-dark w-75 mx-auto pt-5 rounded">
             <div className="row">
                 <div className="col-md-12">
