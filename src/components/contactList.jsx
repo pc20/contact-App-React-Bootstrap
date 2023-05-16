@@ -12,17 +12,21 @@ export default function ContactList(props){
 
     let [filterContactList,setFilterContactList] = useState(contacts);
     
-    
+    //  search Input and filter contact list based on search Input 
     const searchContact = (event) => {
         setQuery(event.target.value);
         if(event.target.value){
+            // filter the contactList
              setFilterContactList(contacts.filter(contact => {
             return contact.name.toLowerCase().includes(event.target.value.toLowerCase());
             }));
         }else{
+            // set original List as filter List
             setFilterContactList(contacts);
         }
     }
+
+    // on loading the component filterContactList is same as original contactList
     useEffect(()=>{
             setFilterContactList(contacts);
         },[contacts])
@@ -48,6 +52,7 @@ export default function ContactList(props){
             </section>
             <hr/>
             <section className="list-group">
+                {/* map the filter contact List */}
                     {
                         filterContactList.map(
                             contact => {

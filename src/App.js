@@ -13,9 +13,10 @@ function App() {
     useEffect( () => {
         const fetchData = async () => {
         try {
-            let response = await FetchData.getData();
+            let response = await FetchData.getData(); // fetch the contact list
             const fetchedList = response.data;
-            fetchedList.sort((a,b) => {
+
+            fetchedList.sort((a,b) => { // sort the list  based on First name
                 let aName = a.name.toLowerCase();
                 let bName = b.name.toLowerCase();
                 if(aName>bName){
@@ -29,12 +30,14 @@ function App() {
             console.log("Error in fetching data",error)
         }
     }
-      fetchData();
+      fetchData(); 
     },[]);
 
+    //update the contactList
     let updateContacts = (contact,contactId) => {
       let newList = [];
       if(contactId){
+        //if contactId is not null update that contact
         console.log("update call made")
         contactList.forEach(element => {
           if(element.id=== parseInt(contactId)){
@@ -44,9 +47,11 @@ function App() {
           }
         });
       }else{
+        // if contactId is null then add contact to the List
           newList = [...contactList,contact];
       }
       
+      // sort the contactList
       newList.sort((a,b) => {
         let aName = a.name.toLowerCase();
         let bName = b.name.toLowerCase();
@@ -59,35 +64,37 @@ function App() {
       setContactList(newList);
     }
 
+    //Delete the contactList
     let deleteContact = (contactId) => {
        let newList = [];
+       // create new List by skipping contact referring to contactId
         contactList.forEach(element => {
           if(element.id!== parseInt(contactId)){
             newList.push(element);
           }
         });
-         newList.sort((a,b) => {
-        let aName = a.name.toLowerCase();
-        let bName = b.name.toLowerCase();
-        if(aName>bName){
-          return 1;
-        }else{
-          return -1;
-        }
-      });
       setContactList(newList);
     }
 
   return (
     <div className="App d-flex justify-content-around">
      <div className="container w-75 mr-auto">
-      <Navbar/>
+      {/* NavBar */}
+      <Navbar/> 
+
+    {/* Routes  */}
       <Routes>
         <Route path={'/'} element={<Navigate to={'/contacts/list'}/>}/>
+        {/* call contactList component by passing contactList and deletContact method */}
         <Route path={'/contacts/list'} element={<ContactList contacts={contactList} deleteContact={deleteContact}/>}/>
+
         <Route path={'/contacts/add'} element={<AddContact updateContacts={updateContacts}/>}/>
+
+        {/* passing both contactList and updateContactList method */}
         <Route path={'/contacts/edit/:contactId'} element={<EditContact contacts={contactList} updateContacts={updateContacts}/>}/>
      </Routes>
+
+
      </div>
     </div>
   );

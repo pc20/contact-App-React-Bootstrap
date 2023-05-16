@@ -8,6 +8,7 @@ function Contact(props) {
     const navigate = useNavigate();
    const  {contact,deleteContact} = props;
 
+//    get the Abbr of the fullname
    function getName(fullname){
     const names = fullname.split(" ");
     let abbr = names[0].charAt(0);
@@ -17,13 +18,14 @@ function Contact(props) {
     return abbr;
 }
 
+// delete Contact
 const handleDeleteContact = () => {
     try {
-        let res = FetchData.deleteContact(contact.id);
+        let res = FetchData.deleteContact(contact.id); // API call to delete contact
         if(res){
             console.log("deleted successfully");
         }
-        deleteContact(contact.id);
+        deleteContact(contact.id); //Since this is a fake API call so delete manually
         navigate('/contacts/list',{replace:true});
     } catch (err) {
          console.log("delete api failed",err);
@@ -38,6 +40,7 @@ const handleDeleteContact = () => {
             <div className=" col-md-5">{contact.name.trim()}</div>
             <div className='col-md-4'>{contact.phone.split(" ")[0].trim()}</div>
             <div className="col-md-2">
+                {/* edit button */}
                 <Link to={`/contacts/edit/${contact.id}`}>
                     <i className="fa-regular fa-pen-to-square px-2 text-dark"></i>
                 </Link>
