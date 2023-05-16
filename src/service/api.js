@@ -12,7 +12,10 @@ export class FetchData {
     }
 
     static updateContact(contact,contactId){
-        return axios.put(`${this.URL}/${contactId}`,contact);
+        return axios.put(`${this.URL}/${contactId}`,contact).catch((err)=>{
+            console.log("contact id not found in db");
+            return null;
+        });
     }
 
     static deleteContact(contactId){

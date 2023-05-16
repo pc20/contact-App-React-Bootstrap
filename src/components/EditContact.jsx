@@ -48,11 +48,11 @@ export default function EditContact(props){
             let res = FetchData.updateContact(displayContact,contactId);
             if(res){
                 console.log('contact added successfully ');
-                updateContacts(displayContact,contactId);
-                navigate('/contacts/list',{replace:true});
             }
+            updateContacts(displayContact,contactId);
+            navigate('/contacts/list',{replace:true});
         }catch(err){
-            // console.log("api called failed ",err);
+            console.log("api called failed ",err);
             navigate(`/contacts/list/${contactId}`,{replace:false});
         }
     }

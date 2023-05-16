@@ -22,9 +22,9 @@ const handleDeleteContact = () => {
         let res = FetchData.deleteContact(contact.id);
         if(res){
             console.log("deleted successfully");
-            deleteContact(contact.id);
-            navigate('/contacts/list',{replace:true});
         }
+        deleteContact(contact.id);
+        navigate('/contacts/list',{replace:true});
     } catch (err) {
          console.log("delete api failed",err);
     }
